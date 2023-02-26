@@ -21,14 +21,27 @@ struct Movie: Codable {
 }
 
 // MARK: - MovieResult
-struct MovieResult: Identifiable, Codable {
+struct MovieResult: Identifiable, Codable,MovieCellProtocol {
      let id: Int
      let adult, video: Bool
      let genreIDS: [Int]
      let originalLanguage, originalTitle, overview: String
      let posterPath, releaseDate, title, backdropPath: String
-     let popularity, voteAverage: Double
+     let popularity, voteAverage: Double?
      let voteCount: Int
+    
+    var posterImage: String{
+        "https://image.tmdb.org/t/p/original/\(posterPath ?? "")"
+    }
+    var titleText: String{
+        originalTitle ?? ""
+    }
+    var ratingText: String{
+        if let voteAverage = voteAverage{
+         return "\(voteAverage) / 10 IMDB"
+        }
+         return ""
+    }
 
      enum CodingKeys: String, CodingKey {
          case adult, id, title, video, overview, popularity
