@@ -1,0 +1,6 @@
+framework module Pods_Filmly {
+  umbrella header "Pods-Filmly-umbrella.h"
+
+  export *
+  module * { export * }
+}
