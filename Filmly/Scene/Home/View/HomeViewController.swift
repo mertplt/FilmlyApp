@@ -46,9 +46,9 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VerticalCollectionViewCell", for: indexPath) as! VerticalCollectionViewCell
         
-        let movie = viewModel.movie?.results?[indexPath.item]
-        cell.titleLabel.text = movie?.originalTitle ?? ""
-        
+        if let movie = viewModel.movie?.results?[indexPath.item]{
+            cell.configure(data: movie)
+        }
         return cell
     }
 
