@@ -23,7 +23,7 @@ class NetworkHelper{
     static let shared = NetworkHelper()
     
     let baseURL = "https://api.themoviedb.org/3/"
-    private let apiKey = "509ef93252a59761a3c353f9ea114de0"
+    private let apiKey = ""
     
     func requestUrl(url:String)->String{
         baseURL + url + "?api_key=\(apiKey)"
